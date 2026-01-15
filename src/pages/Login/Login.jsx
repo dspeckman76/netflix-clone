@@ -40,10 +40,10 @@ const Login = () => {
           <button onClick={user_auth} type='submit'>{signState}</button>
           <button type="button" className="guest-btn" 
             onClick={async () => {
-              setLoading(true);
-              await loginAsGuest();
-              setLoading(false);
-              }}>Sign In as Guest
+            setLoading(true);
+            await loginAsGuest();
+            setLoading(false);
+            }}>Sign In as Guest
           </button>
           <div className="form-help">
             <div className="remember">
