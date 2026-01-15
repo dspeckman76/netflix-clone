@@ -2,7 +2,8 @@ import { initializeApp } from "firebase/app";
 import { createUserWithEmailAndPassword, 
         getAuth, 
         signInWithEmailAndPassword, 
-        signOut} from "firebase/auth";
+        signOut, 
+        signInAnonymously } from "firebase/auth";
 import { addDoc, 
         collection, 
         getFirestore } from "firebase/firestore";
@@ -20,6 +21,18 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
+
+
+const loginAsGuest = async () => {
+  try {
+    await signInAnonymously(auth);
+    toast.success("Signed in as Guest");
+  } catch (error) {
+    console.log(error);
+    toast.error("Guest login failed");
+  }
+};
+
 
 const signUp = async (name, email, password) => {
   try {
@@ -50,4 +63,4 @@ const logout = () => {
   signOut(auth);
 }
 
-export {auth, db, login, signUp, logout};
+export {auth, db, login, signUp, logout, loginAsGuest};

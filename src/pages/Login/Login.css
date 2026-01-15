@@ -56,6 +56,19 @@
   cursor: pointer;
 }
 
+.guest-btn {
+  margin-top: 12px;
+  background: transparent;
+  border: 1px solid #777;
+  color: #fff;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.guest-btn:hover {
+  background: #333;
+}
+
 .form-help {
   display: flex;
   align-items: center;

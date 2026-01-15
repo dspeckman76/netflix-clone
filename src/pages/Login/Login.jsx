@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import './Login.css'
 import logo from '../../assets/logo.png'
-import { login, signUp } from '../../firebase'
+import { login, signUp, loginAsGuest } from '../../firebase'
 import netflix_spinner from '../../assets/netflix_spinner.gif'
 
 const Login = () => {
@@ -38,6 +38,13 @@ const Login = () => {
           <input value={email} onChange={(event) => {setEmail(event.target.value)}} type="email" placeholder='Email' />
           <input value={password} onChange={(event) => {setPassword(event.target.value)}} type="password" placeholder='Password' />
           <button onClick={user_auth} type='submit'>{signState}</button>
+          <button type="button" className="guest-btn" 
+            onClick={async () => {
+              setLoading(true);
+              await loginAsGuest();
+              setLoading(false);
+              }}>Sign In as Guest
+          </button>
           <div className="form-help">
             <div className="remember">
               <input type="checkbox" />
