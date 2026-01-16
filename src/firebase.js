@@ -33,6 +33,7 @@ const loginAsGuest = async () => {
   }
 };
 
+
 const signUp = async (name, email, password) => {
   try {
       const res = await createUserWithEmailAndPassword(auth, email, password);
