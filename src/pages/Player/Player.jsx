@@ -13,7 +13,7 @@ const Player = () => {
     name: "",
     key: "",
     published_at: "",
-    typeof: "",
+    type: "",
 
   })
 
